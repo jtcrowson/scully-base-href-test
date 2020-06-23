@@ -1,27 +1,24 @@
-# ScullyBaseHrefTest
+# Scully baseHrefRewrite Plugin Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+I am attempting to use the baseHrefRewrite plugin to rewrite all of my router links to prefix a given path.  
 
-## Development server
+The use case is that I will be publishing to a GitHub pages instance that appends `/<owner>/<repository>/` to each path.  Currently with this project, when attempting to navigate to `./blogs/test-blog` from the home component, I get navigated to `/blogs/test-blog` instead of my desired route of `/<owner>/<repository>/blogs/test-blog`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+I am attempting to install the baseHrefRewrite plugin globally for all routes to acheive this.
 
-## Code scaffolding
+After following the instructions in the baseHrefRewrite README to integrate the plugin into my scully config, I get the following error during `npm run scully`:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> **Plugin "baseHrefRewrite" of type "undefined" is not found, can not store config**
 
-## Build
+## Steps to reproduce
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. Clone this repo
+2. Run `npm install`
+3. Run `ng build && npm run scully`
+4. Notice the scully command fails due to the above noted error
 
-## Running unit tests
+## How this project was created
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. `ng new scully-base-href-test`
+2. Follow instructions on how to create a scully blog in the getting started page on scully.io
+3. Follow instructions to install baseHrefRewrite plugin from the README here: https://github.com/scullyio/scully/blob/main/libs/plugins/base-href-rewrite/README.md
